@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ГидроСфера — бурение скважин и благоустройство под ключ по всей Беларуси. 15+ лет опыта, 2000+ скважин." />
+  <title>ГидроСфера — бурение скважин и благоустройство</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="pipe-bg" aria-hidden="true">
+    <svg class="pipe-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="pipe-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#22d3ee;stop-opacity:0.5" />
+          <stop offset="100%" style="stop-color:#0891b2;stop-opacity:0.15" />
+        </linearGradient>
+      </defs>
+      <path class="pipe-line" d="M-20,120 Q180,80 400,140 T900,100" fill="none" stroke="url(#pipe-glow)" stroke-width="2" />
+      <path class="pipe-line pipe-line--2" d="M100,-30 Q220,200 380,180 T720,280" fill="none" stroke="url(#pipe-glow)" stroke-width="1.5" opacity="0.6" />
+      <path class="pipe-line pipe-line--3" d="M-40,400 Q300,320 500,420 T1100,380" fill="none" stroke="url(#pipe-glow)" stroke-width="1.2" opacity="0.45" />
+      <path class="pipe-line pipe-line--4" d="M200,700 Q450,600 700,680 T100%,650" fill="none" stroke="url(#pipe-glow)" stroke-width="1.8" opacity="0.35" />
+    </svg>
+    <div class="pipe-grid"></div>
+  </div>
+
+  <header class="site-header" id="header" data-header>
+    <div class="header-inner">
+      <a class="logo-link" href="#top" data-nav-anchor>
+        <img class="logo-img" src="images/logo.jpeg" width="180" height="180" alt="ГидроСфера" decoding="async" />
+      </a>
+      <div class="header-actions">
+        <a class="btn-call-top" href="#contacts" data-nav-anchor>Позвонить</a>
+        <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Открыть меню">
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+        </button>
+      </div>
+    </div>
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <nav class="drawer-nav" aria-label="Разделы">
+        <a href="#services" data-nav-anchor>Услуги</a>
+        <a href="#gallery" data-nav-anchor>Галерея</a>
+        <a href="#contacts" data-nav-anchor>Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="header-placeholder" aria-hidden="true"></div>
+
+  <div class="page-shell">
+    <main class="main-col" id="top">
+        <section class="hero">
+          <div class="hero-media">
+            <img
+              class="hero-media__img--well-result"
+              src="images/main1.jpg"
+              alt="Чистая вода из пробурённой скважины"
+              width="1200"
+              height="900"
+              fetchpriority="high"
+              decoding="async"
+            />
+            <div class="hero-scrim"></div>
+          </div>
+          <div class="hero-copy">
+            <h1 class="hero-title">Бурение скважин и благоустройство по всей Беларуси</h1>
+            <p class="hero-text">
+              Комплексный подход, качественные материалы и опытная бригада. Более 15 лет работы и свыше 2000 пробурённых скважин.
+            </p>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#services">Наши услуги</a>
+              <a class="btn btn-ghost" href="#contacts">Связаться</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="services">
+          <h2 class="section-title">Услуги</h2>
+          <p class="section-lead">Бурение на воду и благоустройство с вводом — комплексно и под ключ.</p>
+
+          <article class="service-card">
+            <div class="service-card__media">
+              <img src="images/photo_2026-03-30%2013.43.27.jpeg" alt="Бурение скважины у частного дома" width="800" height="600" loading="lazy" decoding="async" />
+            </div>
+            <div class="service-card__body">
+              <h3 class="service-card__title">Бурение скважины</h3>
+              <p class="service-card__text">
+                Работаем современными установками, в том числе в стеснённых условиях у застройки. Подбор глубины, аккуратное бурение, консультация на объекте.
+              </p>
+              <p class="service-card__phone-label">Заказ бурения</p>
+              <a class="service-card__phone" href="tel:+375445443479">+375 (44) 544-34-79</a>
+            </div>
+          </article>
+
+          <article class="service-card service-card--reverse">
+            <div class="service-card__media service-card__media--blago-gallery">
+              <div class="blago-gallery" data-blago-gallery>
+                <button type="button" class="blago-gallery__arrow blago-gallery__arrow--prev" aria-controls="blago-gallery-track" aria-label="Предыдущее фото">‹</button>
+                <div class="blago-gallery__viewport" id="blago-gallery-viewport" tabindex="0" aria-roledescription="карусель" aria-label="Фото и схемы благоустройства">
+                  <ul class="blago-gallery__track" id="blago-gallery-track" role="list">
+                    <li class="blago-gallery__slide">
+                      <button type="button" class="blago-gallery__zoom" data-full="images/blago_in.jpg" data-alt="Монтаж автоматики и гидроаккумулятора в помещении">
+                        <img src="images/blago_in.jpg" alt="Монтаж автоматики и гидроаккумулятора в помещении" width="800" height="600" loading="lazy" decoding="async" />
+                      </button>
+                    </li>
+                    <li class="blago-gallery__slide">
+                      <button type="button" class="blago-gallery__zoom" data-full="images/blago_in1.jpg" data-alt="Схема ввода водоснабжения из скважины в дом">
+                        <img class="blago-gallery__img--diagram" src="images/blago_in1.jpg" alt="Схема ввода водоснабжения из скважины в дом" width="800" height="600" loading="lazy" decoding="async" />
+                      </button>
+                    </li>
+                    <li class="blago-gallery__slide">
+                      <button type="button" class="blago-gallery__zoom" data-full="images/blago_out.jpg" data-alt="Обустройство в кессоне: оборудование на объекте">
+                        <img src="images/blago_out.jpg" alt="Обустройство в кессоне: оборудование на объекте" width="800" height="600" loading="lazy" decoding="async" />
+                      </button>
+                    </li>
+                    <li class="blago-gallery__slide">
+                      <button type="button" class="blago-gallery__zoom" data-full="images/blago_out1.jpg" data-alt="Схема обустройства скважины в кессоне">
+                        <img class="blago-gallery__img--diagram" src="images/blago_out1.jpg" alt="Схема обустройства скважины в кессоне" width="800" height="600" loading="lazy" decoding="async" />
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+                <button type="button" class="blago-gallery__arrow blago-gallery__arrow--next" aria-controls="blago-gallery-track" aria-label="Следующее фото">›</button>
+                <div class="blago-gallery__dots" role="group" aria-label="Галерея благоустройства"></div>
+              </div>
+            </div>
+            <div class="service-card__body">
+              <h3 class="service-card__title">Благоустройство и ввод</h3>
+              <p class="service-card__text">
+                Монтаж оборудования, подключение автоматики к скважине, герметизация вводов, пусконаладка. «Под ключ» с гарантией на работы.
+              </p>
+              <p class="service-card__phone-label">Заказ благоустройства и ввода</p>
+              <a class="service-card__phone" href="tel:+375445879287">+375 (44) 587-92-87</a>
+            </div>
+          </article>
+        </section>
+
+        <section class="section section-gallery" id="gallery" aria-label="Галерея работ и процесса">
+          <h2 class="section-title">Галерея</h2>
+          <p class="section-lead section-lead--gallery">Свайпните в сторону — примеры бурения, обустройства и готовых вводов.</p>
+          <div class="gallery-rail-wrap">
+            <div class="gallery-rail" id="gallery-rail" tabindex="0" role="region" aria-label="Фотогалерея, листайте в сторону">
+              <ul class="gallery-rail__track">
+                <li class="gallery-rail__slide"><button type="button" class="gallery-thumb" data-full="images/photo_2026-03-30%2013.43.28.jpeg" data-alt="Обсадные трубы на объекте"><img src="images/photo_2026-03-30%2013.43.28.jpeg" alt="" width="640" height="420" loading="lazy" decoding="async" /></button></li>
+                <li class="gallery-rail__slide"><button type="button" class="gallery-thumb" data-full="images/photo_2026-03-30%2013.43.32.jpeg" data-alt="Бурение: установка и специалисты"><img src="images/photo_2026-03-30%2013.43.32.jpeg" alt="" width="640" height="420" loading="lazy" decoding="async" /></button></li>
+                <li class="gallery-rail__slide"><button type="button" class="gallery-thumb" data-full="images/photo_2026-03-30%2013.43.20.jpeg" data-alt="Буровая работа на участке с газоном"><img src="images/photo_2026-03-30%2013.43.20.jpeg" alt="" width="640" height="420" loading="lazy" decoding="async" /></button></li>
+                <li class="gallery-rail__slide"><button type="button" class="gallery-thumb" data-full="images/photo_2026-03-30%2013.43.27.jpeg" data-alt="Бурение скважины у частного дома"><img src="images/photo_2026-03-30%2013.43.27.jpeg" alt="" width="640" height="420" loading="lazy" decoding="async" /></button></li>
+                <li class="gallery-rail__slide"><button type="button" class="gallery-thumb" data-full="images/photo_2026-03-30%2013.43.35.jpeg" data-alt="Буровая установка рядом с домом"><img src="images/photo_2026-03-30%2013.43.35.jpeg" alt="" width="640" height="420" loading="lazy" decoding="async" /></button></li>
+                <li class="gallery-rail__slide"><button type="button" class="gallery-thumb" data-full="images/main.jpeg" data-alt="Готовое водоснабжение на объекте"><img src="images/main.jpeg" alt="" width="640" height="420" loading="lazy" decoding="async" /></button></li>
+                <li class="gallery-rail__slide"><button type="button" class="gallery-thumb" data-full="images/2026-03-30%2015.04.41.jpg" data-alt="Насосная станция, пробный пуск"><img class="thumb-crop--pump-top" src="images/2026-03-30%2015.04.41.jpg" alt="" width="640" height="420" loading="lazy" decoding="async" /></button></li>
+                <li class="gallery-rail__slide"><button type="button" class="gallery-thumb" data-full="images/blago-1.jpeg" data-alt="Автоматика и гидроаккумулятор в помещении"><img src="images/blago-1.jpeg" alt="" width="640" height="420" loading="lazy" decoding="async" /></button></li>
+                <li class="gallery-rail__slide"><button type="button" class="gallery-thumb" data-full="images/blago-2.jpeg" data-alt="Обвязка скважины в кессоне"><img src="images/blago-2.jpeg" alt="" width="640" height="420" loading="lazy" decoding="async" /></button></li>
+                <li class="gallery-rail__slide"><button type="button" class="gallery-thumb" data-full="images/photo_2026-03-30%2013.43.19.jpeg" data-alt="Оголовок скважины, ввод трубы и кабеля"><img src="images/photo_2026-03-30%2013.43.19.jpeg" alt="" width="640" height="420" loading="lazy" decoding="async" /></button></li>
+                <li class="gallery-rail__slide"><button type="button" class="gallery-thumb" data-full="images/photo_2026-03-30%2013.43.11.jpeg" data-alt="Комплектация: насос, труба и оголовок"><img src="images/photo_2026-03-30%2013.43.11.jpeg" alt="" width="640" height="420" loading="lazy" decoding="async" /></button></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section--installment" id="installment">
+          <div class="installment-card">
+            <h2 class="section-title section-title--in-card">Рассрочка</h2>
+            <p class="installment-intro">Мы предоставляем возможность оплаты в рассрочку ✅</p>
+            <ul class="installment-list">
+              <li>Первоначальный взнос 50–60%;</li>
+              <li>Остальная часть оплаты разбивается на 2–3 месяца.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section section--warranty" id="warranty" aria-label="Гарантия и документы">
+          <div class="installment-card">
+            <h2 class="section-title section-title--in-card">Гарантия и документы</h2>
+            <p class="installment-intro">Гарантия на скважину и на сантехнические работы — 5 лет ✅</p>
+            <p class="warranty-docs-lead">Выписываем полный пакет документов:</p>
+            <ul class="installment-list warranty-docs-list">
+              <li>договор;</li>
+              <li>паспорт;</li>
+              <li>акт выполненных работ.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section section-stats" id="stats" data-stats-section>
+          <h2 class="section-title">О компании в цифрах</h2>
+          <p class="section-lead">Большой опыт — наше главное преимущество: знаем нюансы геологии и монтажа, работаем без сюрпризов в смете.</p>
+          <div class="stats-grid">
+            <div class="stat-block">
+              <span class="stat-value"><span class="stat-num" data-target="15" data-decimals="0">0</span><span class="stat-suffix">+</span></span>
+              <span class="stat-caption">лет опыта</span>
+            </div>
+            <div class="stat-block">
+              <span class="stat-value"><span class="stat-num" data-target="2000" data-decimals="0">0</span><span class="stat-suffix">+</span></span>
+              <span class="stat-caption">скважин</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section--contacts" id="contacts">
+          <h2 class="section-title">Контакты</h2>
+          <p class="section-lead">Работаем по всей Беларуси. Выберите направление и свяжитесь с нами напрямую.</p>
+          <div class="contacts-grid">
+            <div class="contact-block">
+              <h3>Бурение скважины</h3>
+              <a class="contact-tel" href="tel:+375445443479">+375 (44) 544-34-79</a>
+            </div>
+            <div class="contact-block">
+              <h3>Благоустройство и ввод</h3>
+              <a class="contact-tel" href="tel:+375445879287">+375 (44) 587-92-87</a>
+            </div>
+          </div>
+          <a
+            class="insta-link"
+            href="https://www.instagram.com/gydrosphera?igsh=NHYzYXYzOWxzYXF4"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="insta-icon" aria-hidden="true"></span>
+            Instagram — @gydrosphera
+          </a>
+        </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-name">ГидроСфера</span>
+      <span class="footer-unp">УНП 491662327</span>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Закрыть">×</button>
+    <img class="lightbox-img" id="lightbox-img" alt="" />
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
