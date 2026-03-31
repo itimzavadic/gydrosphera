@@ -832,22 +832,16 @@ a:hover {
   color: #a5f3fc;
 }
 
-.contacts-social-label {
-  margin: 0 0 0.75rem;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.45;
-}
-
 .contacts-social {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem 0.65rem;
+  flex-direction: column;
   align-items: stretch;
+  gap: 0.6rem;
+  max-width: 22rem;
 }
 
 .social-chip {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0.9rem;
