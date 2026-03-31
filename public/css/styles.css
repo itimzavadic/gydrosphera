@@ -832,20 +832,80 @@ a:hover {
   color: #a5f3fc;
 }
 
-.insta-link {
+.contacts-social-label {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.contacts-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.65rem;
+  align-items: stretch;
+}
+
+.social-chip {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   font-weight: 600;
+  font-size: 0.875rem;
   text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.insta-icon {
-  width: 1.35rem;
-  height: 1.35rem;
-  background: linear-gradient(145deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-  border-radius: 6px;
+.social-chip:hover {
+  border-color: var(--neon);
+  color: var(--neon);
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.2);
+}
+
+.social-chip__badge {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  color: #fff;
+}
+
+.social-chip__svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  display: block;
+}
+
+.social-chip__badge--instagram {
+  background: linear-gradient(145deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.social-chip__badge--telegram {
+  background: #229ed9;
+}
+
+.social-chip__badge--viber {
+  background: #665cac;
+}
+
+.social-chip__badge--whatsapp {
+  background: #25d366;
+}
+
+.social-chip:hover .social-chip__badge {
+  filter: brightness(1.08);
+}
+
+.social-chip__text {
+  line-height: 1.2;
 }
 
 /* ——— Gallery rail (horizontal swipe) ——— */
