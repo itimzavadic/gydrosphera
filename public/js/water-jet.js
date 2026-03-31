@@ -11,7 +11,7 @@
 
   var dpr = Math.min(window.devicePixelRatio || 1, 2);
   var particles = [];
-  var maxParticles = 700;
+  var maxParticles = 820;
   var isDown = false;
   var lastSpawnX = 0;
   var lastSpawnY = 0;
@@ -38,20 +38,20 @@
 
   function spawnJet(x, y) {
     if (lightboxBlocksFx()) return;
-    var n = 5 + Math.floor(Math.random() * 6);
+    var n = 7 + Math.floor(Math.random() * 6);
     for (var i = 0; i < n; i++) {
       if (particles.length >= maxParticles) particles.shift();
-      var spread = (Math.random() - 0.5) * 1.1;
+      var spread = (Math.random() - 0.5) * 1.2;
       var angle = -Math.PI / 2 + spread;
-      var speed = 220 + Math.random() * 320;
+      var speed = 275 + Math.random() * 380;
       particles.push({
-        x: x + (Math.random() - 0.5) * 6,
-        y: y + (Math.random() - 0.5) * 6,
+        x: x + (Math.random() - 0.5) * 7,
+        y: y + (Math.random() - 0.5) * 7,
         vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed,
-        r: 1.2 + Math.random() * 2.8,
+        r: 1.35 + Math.random() * 3.1,
         life: 0,
-        maxLife: 0.55 + Math.random() * 0.55,
+        maxLife: 0.62 + Math.random() * 0.58,
       });
     }
   }
@@ -61,7 +61,7 @@
     var dx = clientX - lastSpawnX;
     var dy = clientY - lastSpawnY;
     var dist = Math.sqrt(dx * dx + dy * dy);
-    if (dist < 3 && now - lastSpawnTime < 28) return;
+    if (dist < 2.5 && now - lastSpawnTime < 22) return;
     lastSpawnX = clientX;
     lastSpawnY = clientY;
     lastSpawnTime = now;
@@ -134,11 +134,11 @@
       var t = p.life / p.maxLife;
       var fade = 1 - t;
       fade = fade * fade;
-      var alpha = fade * 0.78;
+      var alpha = fade * 0.86;
       var r = p.r * (0.65 + 0.35 * fade);
 
-      ctx.shadowBlur = 6 * fade;
-      ctx.shadowColor = "rgba(34, 211, 238, 0.55)";
+      ctx.shadowBlur = 8 * fade;
+      ctx.shadowColor = "rgba(34, 211, 238, 0.62)";
       ctx.fillStyle =
         "rgba(" +
         Math.round(140 + 75 * fade) +
