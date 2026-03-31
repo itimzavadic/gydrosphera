@@ -11,7 +11,7 @@
 
   var dpr = Math.min(window.devicePixelRatio || 1, 2);
   var particles = [];
-  var maxParticles = 820;
+  var maxParticles = 760;
   var isDown = false;
   var lastSpawnX = 0;
   var lastSpawnY = 0;
@@ -38,20 +38,20 @@
 
   function spawnJet(x, y) {
     if (lightboxBlocksFx()) return;
-    var n = 7 + Math.floor(Math.random() * 6);
+    var n = 6 + Math.floor(Math.random() * 6);
     for (var i = 0; i < n; i++) {
       if (particles.length >= maxParticles) particles.shift();
-      var spread = (Math.random() - 0.5) * 1.2;
+      var spread = (Math.random() - 0.5) * 1.15;
       var angle = -Math.PI / 2 + spread;
-      var speed = 275 + Math.random() * 380;
+      var speed = 248 + Math.random() * 350;
       particles.push({
-        x: x + (Math.random() - 0.5) * 7,
-        y: y + (Math.random() - 0.5) * 7,
+        x: x + (Math.random() - 0.5) * 6.5,
+        y: y + (Math.random() - 0.5) * 6.5,
         vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed,
-        r: 1.35 + Math.random() * 3.1,
+        r: 1.28 + Math.random() * 2.95,
         life: 0,
-        maxLife: 0.62 + Math.random() * 0.58,
+        maxLife: 0.585 + Math.random() * 0.565,
       });
     }
   }
@@ -61,7 +61,7 @@
     var dx = clientX - lastSpawnX;
     var dy = clientY - lastSpawnY;
     var dist = Math.sqrt(dx * dx + dy * dy);
-    if (dist < 2.5 && now - lastSpawnTime < 22) return;
+    if (dist < 2.75 && now - lastSpawnTime < 25) return;
     lastSpawnX = clientX;
     lastSpawnY = clientY;
     lastSpawnTime = now;
@@ -108,7 +108,7 @@
     { passive: true }
   );
 
-  var gravity = 520;
+  var gravity = 493;
 
   function tick(now) {
     var dt = Math.min(0.045, (now - lastFrame) / 1000);
@@ -134,11 +134,11 @@
       var t = p.life / p.maxLife;
       var fade = 1 - t;
       fade = fade * fade;
-      var alpha = fade * 0.86;
+      var alpha = fade * 0.82;
       var r = p.r * (0.65 + 0.35 * fade);
 
-      ctx.shadowBlur = 8 * fade;
-      ctx.shadowColor = "rgba(34, 211, 238, 0.62)";
+      ctx.shadowBlur = 7 * fade;
+      ctx.shadowColor = "rgba(34, 211, 238, 0.585)";
       ctx.fillStyle =
         "rgba(" +
         Math.round(140 + 75 * fade) +
