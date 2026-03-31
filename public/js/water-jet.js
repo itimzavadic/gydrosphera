@@ -6,12 +6,16 @@
   var canvas = document.getElementById("water-fx");
   if (!canvas) return;
 
-  var ctx = canvas.getContext("2d", { alpha: true });
+  var ctx = canvas.getContext("2d", {
+    alpha: true,
+    desynchronized: true,
+  });
   if (!ctx) return;
 
-  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  /* Лёгкий слой: без retina ×2 — меньше пикселей, выше FPS */
+  var dpr = 1;
   var particles = [];
-  var maxParticles = 760;
+  var maxParticles = 420;
   var isDown = false;
   var lastSpawnX = 0;
   var lastSpawnY = 0;
@@ -38,9 +42,9 @@
 
   function spawnJet(x, y) {
     if (lightboxBlocksFx()) return;
-    var n = 6 + Math.floor(Math.random() * 6);
+    var n = 5 + Math.floor(Math.random() * 5);
     for (var i = 0; i < n; i++) {
-      if (particles.length >= maxParticles) particles.shift();
+      if (particles.length >= maxParticles) break;
       var spread = (Math.random() - 0.5) * 1.15;
       var angle = -Math.PI / 2 + spread;
       var speed = 248 + Math.random() * 350;
@@ -61,7 +65,7 @@
     var dx = clientX - lastSpawnX;
     var dy = clientY - lastSpawnY;
     var dist = Math.sqrt(dx * dx + dy * dy);
-    if (dist < 2.75 && now - lastSpawnTime < 25) return;
+    if (dist < 4 && now - lastSpawnTime < 32) return;
     lastSpawnX = clientX;
     lastSpawnY = clientY;
     lastSpawnTime = now;
@@ -103,7 +107,7 @@
     function (e) {
       if (!isDown) return;
       if (e.pointerType === "mouse" && (e.buttons & 1) !== 1) return;
-      trySpawn(e.clientX, e.clientY);
+      trySpawn(e.clientX, clientY);
     },
     { passive: true }
   );
@@ -118,8 +122,10 @@
     var h = window.innerHeight;
     ctx.clearRect(0, 0, w, h);
 
-    ctx.save();
-    for (var i = particles.length - 1; i >= 0; i--) {
+    /* Без shadowBlur — главный выигрыш по FPS; lighter даёт мягкое свечение при наложении */
+    ctx.globalCompositeOperation = "lighter";
+    var i = 0;
+    while (i < particles.length) {
       var p = particles[i];
       p.vy += gravity * dt;
       p.x += p.vx * dt;
@@ -127,23 +133,22 @@
       p.life += dt;
 
       if (p.life >= p.maxLife || p.y > h + 40 || p.x < -40 || p.x > w + 40) {
-        particles.splice(i, 1);
+        particles[i] = particles[particles.length - 1];
+        particles.pop();
         continue;
       }
 
       var t = p.life / p.maxLife;
       var fade = 1 - t;
       fade = fade * fade;
-      var alpha = fade * 0.82;
+      var alpha = fade * 0.42;
       var r = p.r * (0.65 + 0.35 * fade);
 
-      ctx.shadowBlur = 7 * fade;
-      ctx.shadowColor = "rgba(34, 211, 238, 0.585)";
       ctx.fillStyle =
         "rgba(" +
-        Math.round(140 + 75 * fade) +
+        Math.round(100 + 90 * fade) +
         "," +
-        Math.round(210 + 40 * fade) +
+        Math.round(200 + 55 * fade) +
         "," +
         Math.round(255) +
         "," +
@@ -152,8 +157,9 @@
       ctx.beginPath();
       ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
       ctx.fill();
+      i++;
     }
-    ctx.restore();
+    ctx.globalCompositeOperation = "source-over";
 
     requestAnimationFrame(tick);
   }
