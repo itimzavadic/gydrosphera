@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Укажите канонический домен (с https): после смены домена на Vercel или свой — замените URL.
-Sitemap: https://gydrosphera.vercel.app/sitemap.xml
+Sitemap: https://gydrosphera.by/sitemap.xml
