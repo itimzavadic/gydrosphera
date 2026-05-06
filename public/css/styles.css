@@ -683,26 +683,6 @@ a:hover {
   font-size: 0.95rem;
 }
 
-.service-card__phone-label {
-  margin: 0 0 0.25rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-muted);
-}
-
-.service-card__phone {
-  font-size: 1.35rem;
-  font-weight: 700;
-  text-decoration: none;
-  color: var(--neon);
-}
-
-.service-card__phone:hover {
-  color: #a5f3fc;
-}
-
 /* ——— Installment ——— */
 
 .section--installment {
@@ -809,9 +789,24 @@ a:hover {
 }
 
 @media (min-width: 560px) {
-  .contacts-grid {
+  .contacts-grid:not(.contacts-grid--single) {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+.contacts-grid--single {
+  max-width: 28rem;
+}
+
+.contact-block--company-phones {
+  margin-top: 1.5rem;
+}
+
+.contact-tel-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
 }
 
 .contact-block {
@@ -822,12 +817,11 @@ a:hover {
 }
 
 .contact-block h3 {
-  margin: 0 0 0.5rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
+  margin: 0 0 0.65rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--text);
 }
 
 .contact-tel {
